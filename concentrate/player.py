@@ -14,7 +14,7 @@ from itertools import combinations
 from collections import defaultdict
 from math import sqrt
 
-from concentrate.models import db_file
+from concentrate.models import db_file,en15,reduced
 
 class player0:
     def __init__(self, difficulty=['A',5,25,'S'], weights = (3.1, 1.28, 2.29, 7.78)): #this represents maximum difficulty
@@ -24,16 +24,18 @@ class player0:
         #load word lists
         #listfile = open('en15.txt','r')
         #reducedfile = open('reduced.txt','r')
-        listfile = db_file.objects.get(file_name='en15.txt').file
-        reducedfile = db_file.objects.get(file_name='reduced.txt').file
+        #listfile = db_file.objects.get(file_name='en15.txt').file
+        #reducedfile = db_file.objects.get(file_name='reduced.txt').file
+        listfile = en15.objects.all()
+        reducedfile = reduced.objects.all()
         wordset = set()
         reducedset = set()
-        for word in [word.upper().strip() for word in listfile]:
-            wordset.add(word.decode('utf-8'))
-        for word in [word.upper().strip() for word in reducedfile]:
-            reducedset.add(word.decode('utf-8'))
-        listfile.close()
-        reducedfile.close()
+        for word in [word.word.upper().strip() for word in listfile]:
+            wordset.add(word)
+        for word in [word.word.upper().strip() for word in reducedfile]:
+            reducedset.add(word)
+        #listfile.close()
+        #reducedfile.close()
         self.wordlist = list(wordset)
         self.reducedlist = list(reducedset)
         #initialize cache (memory of games, words available for each game, words played, values for tiles)
