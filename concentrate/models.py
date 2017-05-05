@@ -6,3 +6,15 @@ class db_file(models.Model):
     
     def __str__(self):
         return self.file_name
+
+class en15(models.Model):
+    word = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.word
+    
+class reduced(models.Model):
+    word = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.word
