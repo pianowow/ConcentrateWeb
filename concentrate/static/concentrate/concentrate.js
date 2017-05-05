@@ -1,6 +1,21 @@
-window.onload = function() {
+$(document).ready(function() {
   squareClickOnOff();
-};
+  
+  $('#boardinput').mask('SSSSSSSSSSSSSSSSSSSSSSSSS');
+});
+
+boardKeyPress = function() {
+  var $board = $("#board");
+  var $boardinput = $("#boardinput");
+  var inputletters = $boardinput.val();
+  $board.children().each(function(i) {
+    if ('undefined' !== typeof inputletters[i]) {
+      this.innerText=inputletters[i].toUpperCase().trim();
+    } else {
+      this.innerText="";
+    }
+  });
+}
 
 editBoard = function() {
    $("#boardletters").toggleClass("hidden");
@@ -21,18 +36,7 @@ squareClickOnOff = function() {
    }
 }
 
-boardKeyPress = function() {
-   var $board = $("#board");
-   var $boardinput = $("#boardinput");
-   var inputletters = $boardinput.val();
-   $board.children().each(function(i) {
-      if ('undefined' !== typeof inputletters[i]) {
-        this.innerText=inputletters[i].toUpperCase().trim();
-      } else {
-        this.innerText="";
-      }
-   });
-}
+
 
 function cycleColor(event) {
    var $square = $(event.target);

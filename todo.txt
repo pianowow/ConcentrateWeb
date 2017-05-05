@@ -1,5 +1,3 @@
 
 use the colors in the back end
 display scroes of plays
-deny input in boardletters of non alpha characters
-disable double-clicking letters selecting text on the board
