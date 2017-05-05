@@ -1,0 +1,50 @@
+{% load randomint %}
+{% load static %}
+{% random_number 8 as myrnd %}
+<title>Concentrate</title>
+<link rel="stylesheet" type="text/css" href="{% static 'concentrate/concentrate.css' %}?v={{ myrnd }}" />
+<script src="{% static 'concentrate/jquery-3.2.1.js' %}"></script> 
+<script src="{% static 'concentrate/concentrate.js' %}?v={{ myrnd }}"></script> 
+
+<div id="menu">
+   <div class="dropdown"  >
+      <div class="dropdnbtn">Menu</div>
+      <div id="menuContent" class="dropdown-content">
+         <a onclick="editBoard()">Edit Board</a>
+      </div>
+   </div>
+</div>
+
+<div id="container">
+
+   <div id="search">
+      <form action="{% url 'concentrate:search' %}" method="post">
+         {% csrf_token %}
+         {% if board.strip|length == 25 %}
+            <div id="boardletters" class="hidden"><label for="board">Board letters</label><input name="board" type="text" size="25" maxlength="25" value="{{ board.strip }}" onkeyup="boardKeyPress()" onkeypress="boardKeyPress()" id="boardinput"/><br /></div>
+         {% else %}
+            <div id="boardletters"><label for="board">Board letters</label><input name="board" type="text" size="25" maxlength="25" value="{{ board.strip }}" onkeyup="boardKeyPress()" onkeypress="boardKeyPress()" id="boardinput"/><br /></div>
+         {% endif %}
+         {% include "concentrate/board.html" %}
+         <div class="clear"></div>
+         <label for="colors">Colors</label><input name="colors" type="text" size="25" maxlength="25" value="" id="colors"/><br />
+         <label for="need">Required letters</label><input name="need" type="text" size="25" maxlength="25" value="{{ need }}"/><br />
+         <label for="not">Not these letters</label><input name="not" type="text" size="25" maxlength="25" value="{{ not }}"/><br />
+         <label for="any">Any of these letters</label><input name="any" type="text" size="25" maxlength="25" value="{{ any }}"/><br />
+         <input type="submit" value="Search" />
+      </form>
+   </div>
+   
+   <div id="results">
+     <div id="list"> 
+      {% if word_list %}
+         {% for word in word_list %}
+            {{ word|cut:" " }}<br />
+         {% endfor %}
+      {% endif %}
+      </div> 
+   </div>
+
+</div>
+
+{# <pre> {% filter force_escape %} {% debug %} {% endfilter %} </pre> #}

@@ -1,0 +1,119 @@
+#board {
+   width: 260px;
+   height: 260px;
+   margin-top: 10px;
+}
+
+#board .sq {
+   width: 50px;
+   height: 50px;
+   text-align: center;
+   vertical-align: middle;
+   line-height:50px;
+   font-size: 175%;
+   padding: 0 0 0 0;
+   margin: 0 0 0 0;
+   float: left;
+   border-style: solid none none solid;
+   border-width: 1px;
+}
+
+#board .rightcol {
+   border-right-style: solid;
+}
+
+#board .bottomrow {
+   border-bottom-style: solid;
+}
+
+div .clear {
+   clear: both;
+}
+
+div #container {
+   width: 800px;
+   height: 600px;
+}
+
+div #search {
+   float: left;
+   margin-right: 20px
+}
+
+div #results {
+   float: left;
+   width: 250px;
+}
+
+div #list {
+   height: 500px;
+   overflow:auto;
+}
+
+input[type=text] {
+   text-transform: uppercase;
+   width: 250px;
+}
+
+input[type=submit] {
+   margin-top: 10;
+}
+
+label {
+   display: block;
+   width: 125px;
+   padding: 10 0 2 0;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100px; 
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.2);
+    padding: 5px 5px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Links inside the dropdown */
+ .dropdown-content a {
+    color: black;
+    padding: 5px 5px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+ .dropdown-content a:hover {background-color: #f1f1f1}
+
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.hidden {display:none}
+
+.red {
+   background-color: rgb(247, 153, 141);
+}
+
+.red2 {
+   background-color: rgb(255, 67, 47);
+}
+
+.blue {
+   background-color: rgb(120, 200, 245);
+}
+
+.blue2 {
+   background-color: rgb(0, 162, 255);
+}

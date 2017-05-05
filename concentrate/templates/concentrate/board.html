@@ -1,0 +1,29 @@
+<div id="board">
+   {% if board %}
+      {% for l in board|ljust:"25" %}
+           {% with i=forloop.counter0 %}
+              {% if forloop.counter|divisibleby:5 and forloop.counter < 21 %}
+                 <div id="b{{ forloop.counter0 }}" class="sq rightcol">{{ l.strip|upper }}</div>
+              {% elif forloop.counter|divisibleby:5 and forloop.counter > 20 %} 
+                 <div id="b{{ forloop.counter0 }}" class="sq rightcol bottomrow">{{ l.strip|upper }}</div>
+              {% elif forloop.counter > 20 %} 
+                 <div id="b{{ forloop.counter0 }}" class="sq bottomrow">{{ l.strip|upper }}</div>
+              {% else %}
+                 <div id="b{{ forloop.counter0 }}" class="sq">{{ l.strip|upper }}</div>
+              {% endif %}
+           {% endwith %}
+      {% endfor %}
+   {% else %}
+      {% for l in "x"|rjust:"25" %}
+           {% if forloop.counter|divisibleby:5 and forloop.counter < 21 %}
+              <div id="b{{ forloop.counter0 }}" class="sq rightcol"></div>
+           {% elif forloop.counter|divisibleby:5 and forloop.counter > 20 %} 
+              <div id="b{{ forloop.counter0 }}" class="sq rightcol bottomrow"></div>
+           {% elif forloop.counter > 20 %} 
+              <div id="b{{ forloop.counter0 }}" class="sq bottomrow"></div>
+           {% else %}
+              <div id="b{{ forloop.counter0 }}" class="sq"></div>
+           {% endif %}
+      {% endfor %}
+   {% endif %}
+</div>
