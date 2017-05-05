@@ -20,9 +20,9 @@ from . import views
 app_name = 'concentrate'
 urlpatterns = [
     url(r'^$', views.concentrate, name='concentrate'),
-    url(r'^results/([a-zA-Z]{25})', views.results, name='results'),
-    url(r'^results1/([a-zA-Z]{25})/(.*)', views.results1, name='results1'),
-    url(r'^results2/([a-zA-Z]{25})/(.*)', views.results2, name='results2'),
-    url(r'^results3/([a-zA-Z]{25})/(.*)/(.*)', views.results3, name='results3'),                    
+    url(r'^results/([a-zA-Z]{25})/([r|w|b]{25})', views.results, name='results'),
+    url(r'^results1/([a-zA-Z]{25})/([r|w|b]{25})/(.*)', views.results1, name='results1'),
+    url(r'^results2/([a-zA-Z]{25})/([r|w|b]{25})/(.*)', views.results2, name='results2'),
+    url(r'^results3/([a-zA-Z]{25})/([r|w|b]{25})/(.*)/(.*)', views.results3, name='results3'),                    
     url(r'^search', views.search, name='search'),
 ]

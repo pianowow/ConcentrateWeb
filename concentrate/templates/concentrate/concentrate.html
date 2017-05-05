@@ -28,7 +28,7 @@
          {% endif %}
          {% include "concentrate/board.html" %}
          <div class="clear"></div>
-         <label for="colors">Colors</label><input name="colors" type="text" size="25" maxlength="25" value="" id="colors"/><br />
+         <label for="colors">Colors</label><input name="colors" type="text" size="25" maxlength="25" id="colors" value="{{ colors }}"/><br />
          <label for="need">Required letters</label><input name="need" type="text" size="25" maxlength="25" value="{{ need }}"/><br />
          <label for="not">Not these letters</label><input name="not" type="text" size="25" maxlength="25" value="{{ not }}"/><br />
          <input type="submit" value="Search" />
@@ -37,9 +37,9 @@
    
    <div id="results">
      <div id="list"> 
-      {% if word_list %}
-         {% for word in word_list %}
-            {{ word|cut:" " }}<br />
+      {% if plays %}
+         {% for play in plays %}
+            {{ play.1 }} {{ play.0 }}<br />
          {% endfor %}
       {% endif %}
       </div> 

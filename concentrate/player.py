@@ -410,6 +410,10 @@ class player0:
 
     def decide(self, allletters,score,needletters,notletters,move):
         '''judges the merit of possible words for this board'''
+        allletters=allletters.upper()
+        score=score.upper()
+        needletters=needletters.upper()
+        notletters=notletters.upper()
         blue,red,bluedef,reddef = self.convertboardscore(score)
         #letters to focus on are undefended opponent and unclaimed
         if move == 1:
