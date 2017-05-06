@@ -1,3 +1,4 @@
-
-use the colors in the back end
-display scroes of plays
+display colors passed on the board on document ready
+figure out structure for picking from the list
+toggle whose move it is somehow
+hide the colors input box
